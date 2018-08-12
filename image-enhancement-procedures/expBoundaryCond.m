@@ -1,0 +1,30 @@
+%%//Boundary Conditions//%%
+clc;
+clear all;
+close all;
+a=imread('D:\Sri\DIP images\aaa.jpg');
+subplot(2,3,1);
+imshow(a);
+title('original image');
+%structural element
+b=[1 1 1;1 1 1; 1 1 1];
+erode=imerode(a,b);
+subplot(2,3,2);
+imshow(erode);
+title('Eroded image');
+dilate=imdilate(a,b);
+subplot(2,3,3);
+imshow(dilate);
+title('Dilated image');
+x1=a-erode;
+subplot(2,3,4);
+imshow(x1);
+title('a-erode');
+x2=dilate-a;
+subplot(2,3,5);
+imshow(x2);
+title('dilate-a');
+x3=dilate-erode;
+subplot(2,3,6);
+imshow(x3);
+title('Dilate-Erode');
